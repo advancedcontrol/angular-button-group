@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Angular Progress Demo</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body ng-app="coUtils">
+
+        Button Group: 
+        <div ng-init="selection = 'opt1'" btn-group="selection">
+
+            <!-- 
+                ng-click used as btn-group will not update the variable
+                as it does not make assumptions about the actions you may
+                want to take
+            -->
+            <button btn="'opt1'" ng-click="selection='opt1'">Option 1</button>
+            <button btn="'alt'" ng-click="selection='alt'">Alternatively</button>
+            <button btn="'highway'" ng-click="selection='highway'">No way</button>
+        </div>
+
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../button-group.js"></script>
+    </body>
+</html>
