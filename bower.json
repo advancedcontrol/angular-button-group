@@ -1,7 +1,7 @@
 {
-  "name": "angular-progress",
-  "main": ["angular-progress.js"],
-  "description": "Simple AngularJS progress bar directive",
+  "name": "angular-button-group",
+  "main": ["button-group.js"],
+  "description": "Simple button group directive",
   "dependencies": {
     "angular": "1.x"
   },
