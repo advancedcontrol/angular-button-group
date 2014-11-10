@@ -60,7 +60,7 @@
                 link: function(scope, element, attrs, groupCtrl) {
                     var btnRef = {
                         value: function () {
-                            scope.$eval(attrs.btn);
+                            return scope.$eval(attrs.btn);
                         },
                         element: element
                     };
