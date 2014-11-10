@@ -31,14 +31,14 @@
                             btn.element.addClass(btnClass);
                         }
                         buttons.push(btn);
-                    }
+                    };
 
                     this.removeBtn = function(btn) {
                         var index = buttons.indexOf(btn);
                         if (index > -1) {
                             buttons.splice(index, 1);
                         }
-                    }
+                    };
 
                     $scope.$watch($element.attr('btn-group'), function (value) {
                         angular.forEach(buttons, function (btn) {
