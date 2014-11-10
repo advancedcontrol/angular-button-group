@@ -42,7 +42,7 @@
 
                     $scope.$watch($element.attr('btn-group'), function (value) {
                         angular.forEach(buttons, function (btn) {
-                            if (value === $scope.$eval(btn.value)) {
+                            if (value === btn.value()) {
                                 btn.element.addClass('active');
                             } else {
                                 btn.element.removeClass('active');
@@ -59,7 +59,9 @@
                 restrict: 'A',
                 link: function(scope, element, attrs, groupCtrl) {
                     var btnRef = {
-                        value: attrs.btn,
+                        value: function () {
+                            scope.$eval(attrs.btn);
+                        },
                         element: element
                     };
 
