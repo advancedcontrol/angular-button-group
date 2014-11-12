@@ -18,7 +18,8 @@
                 controller: ['$scope', '$element', function($scope, $element) {
                     var buttons = [],
                         btnClass = $element.attr('btn-class') || 'btn',
-                        addClass = true;
+                        addClass = true,
+                        value = null;
 
                     if (btnClass === 'none') {
                         addClass = false;
@@ -40,9 +41,15 @@
                         }
                     };
 
-                    $scope.$watch($element.attr('btn-group'), function (value) {
+                    this.currentValue = function () {
+                        return value;
+                    };
+
+                    $scope.$watch($element.attr('btn-group'), function (val) {
+                        value = val;
+
                         angular.forEach(buttons, function (btn) {
-                            if (value === btn.value()) {
+                            if (val === btn.value()) {
                                 btn.element.addClass('active');
                             } else {
                                 btn.element.removeClass('active');
@@ -66,6 +73,11 @@
                     };
 
                     groupCtrl.addBtn(btnRef);
+
+                    // Button might be added after the button group is created
+                    if (groupCtrl.currentValue() && groupCtrl.currentValue() === btnRef.value()) {
+                        element.addClass('active');
+                    }
 
                     scope.$on('$destroy', function () {
                         groupCtrl.removeBtn(btnRef);
